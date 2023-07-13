@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "name": "Ronison",
+      "lastName": "Matos",
+      "phoneNumber": "(47) 99119-8479",
+      "roleType": "user",
+      "professionalResponsible": " Flávia C.",
+      "email": "ronisonmatos@gmail.com",
+      "registrationDate": "03/07/2023",
+      "dateOfBirth": "13/02/1992",
+      "enable": "true",
+      "id": 1
+    }
+  ]
+}
