@@ -1,0 +1,7 @@
+div.topo {
+    font-size: 1.8em;
+}
+main > div {
+    background-color: #FFF;
+    box-shadow: 0px 0px 05px #0004;
+}
