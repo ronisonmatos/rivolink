@@ -50,16 +50,6 @@ class UserCrud extends Component {
     });
   }
 
-  /*   save() {
-      const user = this.state.user;
-      const method = user.id ? "put" : "post";
-      const url = user.id ? `${baseUrl}/${user.id}` : baseUrl;
-      axios[method](url, user).then((resp) => {
-        const list = this.getUpdatedList(resp.data);
-        this.setState({ user: initialState.user, list });
-      });
-    } */
-
   save(e) {
     e.preventDefault();
     const { name, lastName, phoneNumber, dateOfBirth } = this.state.user;
@@ -116,56 +106,6 @@ class UserCrud extends Component {
     return (
       <div className="form">
         <div className="row">
-
-
-          {/* <div className="col-12 col-md-2">
-            <div className="form-group">
-              <label>Celular:</label>
-              <InputMask
-                className="form-control form-control-sm"
-                mask="(99) 99999-9999"
-                maskChar="dfsdfsd"
-                value={this.state.user.phoneNumber}
-                id="phoneNumber"
-                name="phoneNumber"
-                type="tel"
-                onChange={(e) => this.updateField(e)}
-                placeholder="(00) 00000-0000"
-              />
-              {this.state.showErrorPhoneNumber && <p className="text-danger">Campo obrigatório</p>}
-            </div>
-          </div>
-
-          <div className="col-12 col-md-2">
-            <div className="form-group">
-              <label>Data de Nasc.:</label>
-              <InputMask
-                className="form-control form-control-sm"
-                mask="99/99/9999"
-                placeholder="00/00/0000"
-                name="dateOfBirth"
-                value={this.state.user.dateOfBirth}
-                onChange={(e) => this.updateField(e)}
-              />
-              {this.state.showErrorDateOfBirth && <p className="text-danger">Campo obrigatório</p>}
-            </div>
-          </div> */}
-
-{/*           <div className="col-12 col-md-3">
-            <div className="form-group">
-              <label> Profissional Responsável:</label>
-              <select value={this.state.user.professionalResponsible}
-                className="form-control form-control-sm"
-                name="professionalResponsible"
-                onChange={(e) => this.updateField(e)}>
-                <option value="">-- Select --</option>
-                <option value="option1">Fulando da Silva Sauro</option>
-                <option value="option2">Option 2</option>
-                <option value="option3">Option 3</option>
-              </select>
-            </div>
-          </div> */}
-
         </div >
         <hr />
         <div className="row">
@@ -255,22 +195,6 @@ class UserCrud extends Component {
       {this.renderTable()}
     </Main>;
   }
-
-  /*             <div className="col-12 col-md-2">
-            <div className="form-group">
-              <label>Data de Nasc.:</label>
-              <InputMask
-                className="form-control form-control-sm"
-                mask="99/99/9999"
-                placeholder="00/00/0000"
-                name="dateOfBirth"
-                value={this.state.user.dateOfBirth}
-                onChange={(e) => this.updateField(e)}
-              />
-              {this.state.showErrorDateOfBirth && <p className="text-danger">Campo obrigatório</p>}
-            </div>
-          </div> */
-
 }
 
 export default UserCrud;
