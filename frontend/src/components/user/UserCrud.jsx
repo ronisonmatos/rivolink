@@ -105,8 +105,6 @@ class UserCrud extends Component {
   renderForm() {
     return (
       <div className="form">
-        <div className="row">
-        </div >
         <hr />
         <div className="row">
           <div className="col-12 d-flex justify-content-end ">
@@ -115,8 +113,7 @@ class UserCrud extends Component {
             </button>
             <button
               className="btn btn-secondary ml-2"
-              onClick={(e) => this.clear(e)}
-            >
+              onClick={(e) => this.clear(e)}>
               Cancelar
             </button>
           </div>
@@ -183,11 +180,11 @@ class UserCrud extends Component {
       <div className="form">
         <div className="row">
           <InputForm label="Nome" placeholderInput="Digite o nome..." name="name" />
-          <InputForm label="Sobrenome" placeholderInput="Digite o sobrenome..." name="lastName" />
-          <InputForm label="E-mail" placeholderInput="name@example.com" name="email" />
+          <InputForm label="Sobrenome" placeholderInput="Digite o sobrenome..." name="name" />
+          <InputForm label="E-mail" placeholderInput="name@example.com" name="name" />
           <InputMaskForm label="Celular" placeholder="(00) 00000-0000" name="phoneNumber" type="tel" id="phoneNumber" mask="(99) 99999-9999" />
           <InputMaskForm label="Data de Nascimento" placeholder="00/00/0000" name="dateOfBirth" type="tel" id="dateOfBirth" mask="99/99/9999" />
-          <ComboBoxForm value="professionalResponsible" name="professionalResponsible"/>
+          <ComboBoxForm value="professionalResponsible" name="professionalResponsible" />
         </div>
       </div>
 

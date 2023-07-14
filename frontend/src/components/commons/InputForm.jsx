@@ -6,16 +6,6 @@ class InputForm extends Component {
         this.state = {
             user: {
                 name: "",
-                value: "",
-                email: "",
-                lastName: "",
-                phoneNumber: "",
-                roleType: "",
-                professionalResponsible: "",
-                registrationDate: "",
-                dateOfBirth: "",
-                placeholderInput: "",
-                label: ""
             },
             showError: false
         };
@@ -27,11 +17,7 @@ class InputForm extends Component {
 
         this.setState({
             user,
-            showErrorName: InputForm.isEmptyInput(user.name),
-            showErrorLastName: InputForm.isEmptyInput(user.lastName),
-            showErrorDateOfBirth: InputForm.isEmptyInput(user.dateOfBirth),
-            showErrorEmail: InputForm.isEmptyInput(user.email),
-            showErrorPhoneNumber: InputForm.isEmptyInput(user.phoneNumber)
+            showError: InputForm.isEmptyInput(user.name),
         });
     }
 
