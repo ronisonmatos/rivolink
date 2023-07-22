@@ -35,25 +35,6 @@ class InputMaskForm extends Component {
 
     render() {
         return (
-
-/*             div className="col-12 col-md-2">
-            <div className="form-group">
-              <label>Celular:</label>
-              <InputMask
-                className="form-control form-control-sm"
-                mask="(99) 99999-9999"
-                maskChar="dfsdfsd"
-                value={this.state.user.phoneNumber}
-                id="phoneNumber"
-                name="phoneNumber"
-                type="tel"
-                onChange={(e) => this.updateField(e)}
-                placeholder="(00) 00000-0000"
-              />
-              {this.state.showErrorPhoneNumber && <p className="text-danger">Campo obrigatório</p>}
-            </div>
-          </div> */
-
             <div className="col-12 col-md-3">
                 <div className="form-group">
                     <label>{this.props.label}:</label>

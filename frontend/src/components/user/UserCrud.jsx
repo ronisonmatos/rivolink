@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Main from "../templates/Main";
 import axios from "axios";
-import InputForm from "../commons/InputForm";
-import InputMaskForm from "../commons/InputMaskForm";
-import ComboBoxForm from "../commons/ComboBoxForm";
+import FormUser from "../forms/userForm/FormUser";
 
 const headerPros = {
   icon: "user",
@@ -177,17 +175,7 @@ class UserCrud extends Component {
 
   render() {
     return <Main {...headerPros}>
-      <div className="form">
-        <div className="row">
-          <InputForm label="Nome" placeholderInput="Digite o nome..." name="name" />
-          <InputForm label="Sobrenome" placeholderInput="Digite o sobrenome..." name="name" />
-          <InputForm label="E-mail" placeholderInput="name@example.com" name="name" />
-          <InputMaskForm label="Celular" placeholder="(00) 00000-0000" name="phoneNumber" type="tel" id="phoneNumber" mask="(99) 99999-9999" />
-          <InputMaskForm label="Data de Nascimento" placeholder="00/00/0000" name="dateOfBirth" type="tel" id="dateOfBirth" mask="99/99/9999" />
-          <ComboBoxForm value="professionalResponsible" name="professionalResponsible" />
-        </div>
-      </div>
-
+      <FormUser/>
       {this.renderForm()}
       {this.renderTable()}
     </Main>;
