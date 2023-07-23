@@ -1,15 +1,18 @@
 import "./Main.css";
-import React from "react";
+import React, { Fragment } from "react";
 import Header from "./Header";
+import { BsFillHouseFill } from "@react-icons/all-files/bs/BsFillHouseFill";
 
 const Main = (props) =>
-    <React.Fragment>
-        <Header {...props} />
+    <Fragment>
+        <Header {...props} >
+            <BsFillHouseFill/>
+        </Header>
         <main className="content container-fluid">
             <div className="p-3 mt-3">
                 {props.children}
             </div>
         </main>
-    </React.Fragment>
+    </Fragment>
 
 export default Main;

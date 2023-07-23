@@ -11,6 +11,9 @@ const Nav = (props) => (
       <Link to="/users">
         <i className="fa fa-users"></i> Usuários
       </Link>
+      <Link to="/schedule">
+        <i className="fa fa-calendar"></i> Agenda
+      </Link>
     </nav>
   </aside>
 );
