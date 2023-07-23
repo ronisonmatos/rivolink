@@ -11,6 +11,18 @@
       "dateOfBirth": "13/02/1992",
       "enable": "true",
       "id": 1
+    },
+    {
+      "name": "João",
+      "lastName": "Silva",
+      "phoneNumber": "(47) 99169-2365",
+      "roleType": "user",
+      "professionalResponsible": " Flávia C.",
+      "email": "joao.silva@gmail.com",
+      "registrationDate": "03/07/2023",
+      "dateOfBirth": "13/02/1992",
+      "enable": "false",
+      "id": 2
     }
   ]
 }
