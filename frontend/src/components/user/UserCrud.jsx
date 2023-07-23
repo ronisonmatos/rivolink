@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Main from "../templates/Main";
 import axios from "axios";
 import FormUser from "../forms/userForm/FormUser";
+import { BsTrashFill } from "@react-icons/all-files/bs/BsTrashFill";
+import {BsPencilSquare} from "@react-icons/all-files/bs/BsPencilSquare.esm"
+import {IoIosSave} from "@react-icons/all-files/io/IoIosSave"
+import { IconContext } from "@react-icons/all-files";
 
 const headerPros = {
   icon: "user",
@@ -37,7 +41,7 @@ class UserCrud extends Component {
     });
   }
 
-  clear() {
+/*   clear() {
     this.setState({
       user: initialState.user,
       showErrorName: false,
@@ -46,7 +50,7 @@ class UserCrud extends Component {
       showErrorEmail: false,
       showErrorPhoneNumber: false
     });
-  }
+  } */
 
   save(e) {
     e.preventDefault();
@@ -100,25 +104,32 @@ class UserCrud extends Component {
     return user.enable === "true" ? "Ativo" : "Inativo";
   }
 
-  renderForm() {
+/*   renderForm() {
     return (
       <div className="form">
         <hr />
         <div className="row">
           <div className="col-12 d-flex justify-content-end ">
-            <button className="bnt btn-primary" onClick={(e) => this.save(e)}>
-              Salvar
-            </button>
-            <button
-              className="btn btn-secondary ml-2"
+            <button 
+              className="bnt btn-secondary" 
               onClick={(e) => this.clear(e)}>
               Cancelar
+            </button>
+            <button
+              className="btn btn-primary ml-2"
+              onClick={(e) => this.save(e)}>
+            <IconContext.Provider value={{className: "global-class-name", size: "1.3em" }}>
+              <div>
+                <IoIosSave/> Salvar
+              </div>
+            </IconContext.Provider>
+
             </button>
           </div>
         </div>
       </div >
     );
-  }
+  } */
 
   load(user) {
     this.setState({ user });
@@ -159,13 +170,21 @@ class UserCrud extends Component {
           <td>
             <button className="btn btn-warning ml-2 form-control-sm"
               onClick={() => this.load(user)}>
-              <i className="fa fa-pencil" />
+                <IconContext.Provider value={{ color: "black", className: "global-class-name", size: "1.1em" }}>
+                  <div>
+                    <BsPencilSquare />
+                  </div>
+                </IconContext.Provider>
             </button>
 
             <button
               className="btn btn-danger ml-2 form-control-sm"
               onClick={() => this.remove(user)}>
-              <i className="fa fa-trash" />
+                <IconContext.Provider value={{className: "global-class-name", size: "1.1em" }}>
+                  <div>
+                    <BsTrashFill />
+                  </div>
+                </IconContext.Provider>               
             </button>
           </td>
         </tr>
@@ -173,10 +192,11 @@ class UserCrud extends Component {
     });
   }
 
+  // O que está dentro do <Main> ... </Main> são os childrens
   render() {
     return <Main {...headerPros}>
       <FormUser/>
-      {this.renderForm()}
+{/*       {this.renderForm()}  */}
       {this.renderTable()}
     </Main>;
   }
