@@ -16,6 +16,8 @@ const headerPros = {
 
 /* Conectando ao servidor */
 const baseUrl = "http://localhost:3001/users/";
+const statusOk = 200;
+
 const initialState = {
   user: {
     name: "",
@@ -30,7 +32,6 @@ const initialState = {
   },
   list: [],
 };
-
 
 class DateOfBirth extends Component {
   render() {
@@ -158,8 +159,8 @@ class UserCrud extends Component {
    renderForm() {
     return (
       <div className="form">
-
         <div className="row">
+
           <InputForm user={this.state.user} onChange={e => this.updateField(e)} showErrorName={this.state.showErrorName}/>
 
           <div className="col-12 col-md-6">
@@ -237,10 +238,25 @@ class UserCrud extends Component {
   }
 
   remove(user) {
-    axios.delete(`${baseUrl}/${user.id}`).then((resp) => {
-      const list = this.getUpdatedList(user, false);
-      this.setState({ list });
-    });
+    const { id } = user;
+    axios
+        .delete(`${baseUrl}/${id}`)
+        .then((response) => {
+          if (response.status === statusOk) {
+            this.removeFromList(id);
+          } else {
+            console.error('Erro ao excluir o usuário.');
+          }
+        })
+        .catch((error) => {
+          console.error('Erro ao excluir o usuário:', error);
+        });
+  }
+
+  removeFromList(id) {
+    this.setState((prevState) => ({
+      list: prevState.list.filter((user) => user.id !== id),
+    }));
   }
 
   renderTable() {
