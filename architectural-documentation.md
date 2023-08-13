@@ -17,13 +17,13 @@ Este documento descreve parte da arquitetura do sistema [RivoLink](https://githu
 ## Descrição Geral sobre o RivoLink
 
 O RivoLink originou-se como projeto de Trabalho de Conclusão de Curso (TCC) na [PUCRS](https://online.pucrs.br/), focado no [Desenvolvimento Full Stack](https://online.pucrs.br/pos-graduacao/desenvolvimento-full-stack). Com seu potencial, 
-o RivoLink poderá emergir como um produto competitivo no mercado de sistemas para clínicas.
+o RivoLink poderá emergir como um produto competitivo no mercado de sistemas para clínicas de psicologia.
 
 ## RivoLink
 
 ### Objetivo Geral
 
-Plataforma de gestão clínica com ênfase na excelência do atendimento, proporcionando praticidade no cotidiano e facilitando o acompanhamento contínuo do progresso dos pacientes.
+Plataforma de gestão clínica de psicologia com ênfase na excelência do atendimento, proporcionando praticidade no cotidiano e facilitando o acompanhamento contínuo do progresso dos pacientes.
 
 ### Objetivos Específicos
 
