@@ -1,0 +1,35 @@
+Claro, aqui estão alguns exemplos de perguntas que podem ser usadas em pesquisas de UI/UX, dependendo do estágio do projeto e dos objetivos da pesquisa:
+
+**Entendimento do Público-Alvo:**
+
+1. Qual é o seu objetivo principal ao usar nosso produto/serviço?
+2. Quais são as principais tarefas que você espera realizar usando este produto?
+3. Que tipo de dispositivo você costuma usar com mais frequência para acessar produtos semelhantes?
+4. Quais são os desafios mais comuns que você enfrenta ao usar produtos similares?
+5. Que recursos você considera essenciais em um produto como o nosso?
+
+**Avaliação da Experiência Atual:**
+
+6. Em uma escala de 1 a 10, o quanto você acha fácil navegar pelo nosso site/aplicativo?
+7. Quais elementos da nossa interface você considera mais intuitivos? E quais são os mais confusos?
+8. Existe alguma parte do processo que você acha particularmente frustrante ou difícil de entender?
+9. Como você se sente sobre as cores e o design visual em nosso produto?
+10. Quais melhorias você gostaria de ver em relação à experiência atual?
+
+**Testes de Usabilidade:**
+
+11. Tente realizar a tarefa X. O que você achou fácil? O que você achou difícil?
+12. Onde você esperaria encontrar a opção Y?
+13. Que ações você acha que pode realizar ao clicar no ícone Z?
+14. Como você se sente em relação ao tempo que leva para concluir a tarefa X?
+15. Houve algum momento em que você se sentiu perdido ou não soube o que fazer?
+
+**Feedback sobre Novas Ideias:**
+
+16. Apresentamos uma nova abordagem para a página inicial. O que você acha dessa nova aparência?
+17. Como você se sente sobre a inclusão de uma função de chat ao vivo para suporte imediato?
+18. Estamos considerando adicionar uma seção de tutoriais em vídeo. Isso seria útil para você?
+19. Como você reagiria à ideia de personalizar as cores da interface de acordo com suas preferências?
+20. Imaginando um mundo ideal, como seria a experiência perfeita usando nosso produto?
+
+Lembre-se de que essas perguntas devem ser adaptadas ao contexto do seu projeto e aos objetivos da pesquisa. Além disso, é importante combinar diferentes tipos de perguntas para obter uma visão abrangente da experiência do usuário e identificar oportunidades de melhoria.
