@@ -8,6 +8,16 @@ Este documento foi produzido por **Ronison Matos**.
 
 - Contato: https://github.com/ronisonmatos
 
+### Visão de Informação
+
+O objetivo do sistema é um sistema completo voltado para clínica de psicologia, por isso, entender o fluxo das informações relacionadas com o procedimento de cadastro até o atendimento é muito importante.
+
+O primeiro passo para conseguir utilizar é fazer parte do RivoLink, ou seja, ter um cadastrado ativo no sistema. 
+
+<!-- A seguir está o diagrama de máquina de estados para descrever os estados do procedimento de publicação de uma comunidade.
+
+ ![fig4](architectural-documentation/diagrama-maquina-estados.jpeg) --> 
+
 # Descrição Arquitetural -- RivoLink
 
 Este documento descreve parte da arquitetura do sistema [RivoLink](https://github.com/ronisonmatos/rivolink). Essa descrição foi baseada principalmente no modelo [C4](https://c4model.com/).
@@ -83,13 +93,3 @@ Os principais componentes do sistema RivoLink estão descritos a seguir:
  ![fig3](architectural-documentation/diagrama-componentes.svg) --> 
 
 [//]: <> (### Código <pre>Em breve!</pre>)
-
-### Visão de Informação
-
-O objetivo do sistema é um sistema completo voltado para clínica de psicologia, por isso, entender o fluxo das informações relacionadas com o procedimento de cadastro até o atendimento é muito importante.
-
-O primeiro passo para conseguir utilizar é fazer parte do RivoLink, ou seja, ter um cadastrado ativo no sistema. 
-
-<!-- A seguir está o diagrama de máquina de estados para descrever os estados do procedimento de publicação de uma comunidade.
-
- ![fig4](architectural-documentation/diagrama-maquina-estados.jpeg) --> 
