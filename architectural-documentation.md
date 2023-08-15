@@ -8,7 +8,7 @@ Este documento foi produzido por **Ronison Matos**.
 
 - Contato: https://github.com/ronisonmatos
 
-### Visão de Informação
+# Visão de Informação
 
 O objetivo do sistema é um sistema completo voltado para clínica de psicologia, por isso, entender o fluxo das informações relacionadas com o procedimento de cadastro até o atendimento é muito importante.
 
