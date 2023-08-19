@@ -10,7 +10,7 @@ aside.menu-area{
     text-decoration: none;
     color: #FFF;
     font-weight: 300;
-    padding: 15px;
+    padding: 12px;
 }
 
 .menu a:hover {
@@ -18,7 +18,9 @@ aside.menu-area{
 }
 
 .menu a.selected {
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    background: var(--bg-selected);
+    color: var(--bg-dark-houver);
+    font-weight: bold;
 }
 
 @media(max-width: 768px){
