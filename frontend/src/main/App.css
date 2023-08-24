@@ -1,6 +1,7 @@
 :root {
-    --bg-dark: #1A2F3A;
-    --bg-dark-houver: #264454;
+    --bg-dark: #352356;
+    --bg-dark-houver: #493272;
+    --bg-selected: #ffaa00;
 
     --logo-height: 100px;
     --header-height: 100px;
@@ -30,7 +31,7 @@
         "menu content"
         "menu footer";
     height: 100vh;
-    background-color: #F5F5F5;
+    background-color: #eeeeee;
 }
 
 aside.logo {

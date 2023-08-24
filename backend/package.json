@@ -2,14 +2,21 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "json-server --watch db.json --port 3001"
+    "dev": "nodemon",
+    "production": "pm2 start src/index.js --name todo-app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-server": "0.13.0"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3",
+    "nodemon": "^3.0.1",
+    "pm2": "^5.3.0",
+    "winston": "^3.10.0"
   }
 }
