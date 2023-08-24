@@ -4,6 +4,38 @@ Versão: 1.0
 
 # Autor
 
+Esse sistema se adequa a categorias EHR
+https://www.meuconsultorio.com/blog/diferenca-entre-o-sistema-ehr-e-o-emr/
+
+Achar algum lugar para por essa mapa de estrutura
+.
+└── /src
+    └── /components
+        ├── /forms
+        │   ├── /TextField
+        │   │   ├── TextField.js
+        │   │   ├── TextField.styles.js
+        │   │   ├── TextField.test.js
+        │   │   └── TextField.stories.js
+        │   ├── /Select
+        │   │   ├── Select.js
+        │   │   ├── Select.styles.js
+        │   │   ├── Select.test.js
+        │   │   └── Select.stories.js
+        │   └── index.js
+        ├── /routing
+        │   └── /PrivateRoute
+        │       ├── /PrivateRoute.js
+        │       └── /PrivateRoute.test.js
+        └── /layout
+            └── /navigation
+                └── /NavBar
+                    ├── NavBar.js
+                    ├── NavBar.styles.js
+                    ├── NavBar.test.js
+                    └── NavBar.stories.js
+
+
 Este documento foi produzido por **Ronison Matos**.
 
 - Contato: https://github.com/ronisonmatos

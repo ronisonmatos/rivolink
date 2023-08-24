@@ -1,8 +1,20 @@
 const express = require('express');
 const logger = require('../config/logger');
 const Todo = require('../models/todo');
+const RateLimit = require('express-rate-limit');
 
 const router = express.Router();
+
+// Define a configuração do rate limiter
+// Quando houver refatoração verificar esse código que se encontra duplicado
+const limiter = RateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minuto
+    max: 10,
+    message: { error: 'Muitas requisições. Por favor, tente novamente mais tarde.' }
+});
+
+// Aplica o rate limiter a todas as requisições
+router.use(limiter);
 
 router.post('/register-todo', async (req, res) =>{
     const {description} = req.body;

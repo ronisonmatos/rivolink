@@ -2,8 +2,19 @@ const express = require('express');
 const logger = require('../config/logger');
 const User = require('../models/user');
 const Todo = require("../models/todo");
+const RateLimit = require('express-rate-limit');
 
 const router = express.Router();
+
+// Define a configuração do rate limiter
+const limiter = RateLimit({
+    windowMs: 1 * 60 * 1000, // 1 minuto
+    max: 10,
+    message: { error: 'Muitas requisições. Por favor, tente novamente mais tarde.' }
+});
+
+// Aplica o rate limiter a todas as requisições
+router.use(limiter);
 
 router.post('/user', async (req, res) =>{
     const {email} = req.body;
