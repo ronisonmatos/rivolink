@@ -21,10 +21,10 @@ const Nav = (props) => {
                 onClick={() => handleButtonClick('users')}>
             <i className="fa fa-users"></i> Usuários
           </Link>
-          <Link to="/schedule"
-                className={`menu-button ${selectedButton === 'schedule' ? 'selected' : ''}`}
-                onClick={() => handleButtonClick('schedule')}>
-            <i className="fa fa-calendar"></i> Agenda
+          <Link to="/todolist"
+                className={`menu-button ${selectedButton === 'todolist' ? 'selected' : ''}`}
+                onClick={() => handleButtonClick('todolist')}>
+            <i className="fa fa-calendar-check-o "></i> Lista de Tarefas
           </Link>
         </nav>
       </aside>
