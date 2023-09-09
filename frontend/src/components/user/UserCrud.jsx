@@ -15,7 +15,8 @@ const headerPros = {
 };
 
 /* Conectando ao servidor */
-const baseUrl = "http://localhost:3001/users/";
+//const baseUrl = "http://localhost:3001/users/";
+const baseUrl = "http://127.0.0.1:3004/users/user";
 const statusOk = 200;
 
 const initialState = {
@@ -26,7 +27,6 @@ const initialState = {
     phoneNumber: "",
     roleType: "",
     professionalResponsible: "",
-    registrationDate: "",
     dateOfBirth: "",
     enable: true
   },
@@ -93,10 +93,11 @@ class UserCrud extends Component {
   componentDidMount() {
     axios.get(baseUrl)
         .then((resp) => {
-          this.setState({ list: resp.data });
+          this.setState({ list: resp.data.users});
+          console.log(`======> ${resp}`)
         })
         .catch((error) => {
-          console.error('Erro na requisição:', error);
+         /* console.error('Erro na requisição:', error);*/
         });
   }
 
