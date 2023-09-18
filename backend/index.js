@@ -5,9 +5,6 @@ const port = 3004;
 
 app.use(express.json());
 
-const blogRouter = require("./src/routes/blog");
-app.use(blogRouter);
-
 const userRouter = require("./src/routes/userRouter");
 app.use(userRouter);
 
