@@ -1,49 +1,93 @@
-const express = require('express');
-const logger = require('../config/logger');
-const User = require('../models/user');
-const Todo = require("../models/todo");
-const RateLimit = require('express-rate-limit');
+"use strict";
+const userModel = require("../models/userModel");
 
-const router = express.Router();
+const getAllUser = async (req, res) => {
+  try {
+    const users = await userModel.getAllUser();
+    res.send(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-// Define a configuração do rate limiter
-const limiter = RateLimit({
-    windowMs: 1 * 60 * 1000, // 1 minuto
-    max: 10,
-    message: { error: 'Muitas requisições. Por favor, tente novamente mais tarde.' }
-});
+const createUser = async (req, res) => {
+  try {
+    const newUser = await userModel.createUser(req);
+    res.status(201).send(newUser);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-// Aplica o rate limiter a todas as requisições
-router.use(limiter);
-
-router.post('/user', async (req, res) =>{
-    const {email} = req.body;
-    try{
-        if(await User.findOne({email})){
-            logger.info(`Usuario ja existe: ${email}`);
-            return res.status(400).send({error: 'Usuario ja existe'});
-        }
-        const user = await User.create(req.body);
-        //user.password = undefined; // Não retorna a senha, mais segurança
-        logger.info(`Usuario cadastrado com sucesso: ${email}`);
-        return res.send({user});
-    }catch (err){
-        logger.info('Falha ao registrar usuario: ', err);
-        return res.status(400).send({error: 'Falha ao registrar usuario'});
+const getUserById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await userModel.getUserById(id);
+    if (user) {
+      res.send(user);
+    } else {
+      res.status(404).json({ error: "User not found." });
     }
-});
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-router.get('/user', async (req, res) => {
-    try {
-        // Consulta o banco de dados ou armazenamento para obter todas as tarefas
-        const users = await User.find();
+const updateUser = async (req, res) => {
+  const { id } = req.params;
+  const {
+    first_name,
+    last_name,
+    phone_number,
+    email,
+    password,
+    date_of_birth,
+    role_type,
+    is_enabled,
+  } = req.body;
 
-        // Retorna as tarefas encontradas como resposta
-        return res.send({  users });
-    } catch (err) {
-        console.error('Erro ao buscar usuário:', err);
-        return res.status(500).send({ error: 'Erro ao buscar usuário' });
+  try {
+    const user = {
+      id,
+      first_name,
+      last_name,
+      phone_number,
+      email,
+      password,
+      date_of_birth,
+      role_type,
+      is_enabled,
+    };
+    const updateUser = await userModel.updateUser(user);
+    if (updateUser.length !== 0) {
+      res.status(201).send(updateUser);
+    } else {
+      res.status(404).json({ error: "User not found." });
     }
-});
+    return updateUser;
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
-module.exports = app => app.use('/users', router);
+const deleteUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deleteUser = await userModel.deleteUser(id);
+    if (deleteUser) {
+      res.sendStatus(204);
+    } else {
+      res.status(404).json({ erro: "User not found." });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  getAllUser,
+  createUser,
+  getUserById,
+  updateUser,
+  deleteUser
+};
