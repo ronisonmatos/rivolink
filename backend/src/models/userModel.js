@@ -1,11 +1,12 @@
 "use strict";
 const db = require("../../db/db");
 const USER_COLUMM = "user";
+const bcrypt = require("bcryptjs");
+const saltRounds = 10; // You can adjust the number of salt rounds as needed.
 
 const getAllUser = async () => {
   try {
-    const users = await db.select("*").from(USER_COLUMM);
-    return users;
+    return await db.select("*").from(USER_COLUMM);
   } catch (error) {
     throw error;
   }
@@ -23,16 +24,30 @@ const createUser = async (req) => {
     is_enabled,
   } = req.body;
   try {
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     await db(USER_COLUMM).insert({
       first_name,
       last_name,
       phone_number,
       email,
-      password,
+      password: hashedPassword,
       date_of_birth,
       role_type,
       is_enabled,
     });
+
+    // Recupere os dados do usuário recém-inserido no banco de dados.
+    return {
+      first_name,
+      last_name,
+      phone_number,
+      email,
+      password, // Lembre-se de que o password deve ser retornado com hash.
+      date_of_birth,
+      role_type,
+      is_enabled,
+    };
+
   } catch (error) {
     throw error;
   }
@@ -40,8 +55,7 @@ const createUser = async (req) => {
 
 const getUserById = async (id) => {
   try {
-    const userById = await db(USER_COLUMM).where({ id }).first();
-    return userById;
+    return await db(USER_COLUMM).where({id}).first();
   } catch (error) {
     throw error;
   }
@@ -49,22 +63,19 @@ const getUserById = async (id) => {
 
 const updateUser = async (user) => {
   const { id } = user;
-
   try {
-    const updateUser = await db(USER_COLUMM)
-      .where({ id })
-      .update(user, [
-        "id",
-        "first_name",
-        "last_name",
-        "phone_number",
-        "email",
-        "date_of_birth",
-        "role_type",
-        "is_enabled"
-      ]);
-
-    return updateUser;
+    return await db(USER_COLUMM)
+        .where({id})
+        .update(user, [
+          "id",
+          "first_name",
+          "last_name",
+          "phone_number",
+          "email",
+          "date_of_birth",
+          "role_type",
+          "is_enabled"
+        ]);
   } catch (error) {
     throw error;
   }
