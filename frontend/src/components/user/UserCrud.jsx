@@ -16,19 +16,19 @@ const headerPros = {
 
 /* Conectando ao servidor */
 //const baseUrl = "http://localhost:3001/users/";
-const baseUrl = "http://127.0.0.1:3004/users/user";
+const baseUrl = "http://127.0.0.1:3004/user";
 const statusOk = 200;
 
 const initialState = {
   user: {
-    name: "",
+    first_name: "",
+    last_name: "",
+    phone_number: "",
     email: "",
-    lastName: "",
-    phoneNumber: "",
-    roleType: "",
-    professionalResponsible: "",
-    dateOfBirth: "",
-    enable: true
+    password:"Default",
+    date_of_birth: "",
+    role_type: "client",
+    is_enabled: true
   },
   list: [],
 };
@@ -41,9 +41,9 @@ class DateOfBirth extends Component {
         <InputMask
             className="form-control form-control-sm"
             mask="99/99/9999"
-            value={this.props.user.dateOfBirth}
-            id="dateOfBirth"
-            name="dateOfBirth"
+            value={this.props.user.date_of_birth}
+            id="date_of_birth"
+            name="date_of_birth"
             type="tel"
             onChange={this.props.onChange}
             placeholder="dd/mm/aaaa"
@@ -56,10 +56,10 @@ class DateOfBirth extends Component {
 
 DateOfBirth.propTypes = {
   user: PropTypes.shape({
-    dateOfBirth: PropTypes.string
+    date_of_birth: PropTypes.string
   }),
   onChange: PropTypes.func,
-  showErrorPhoneNumber: PropTypes.any
+  showErrorDateOfBirth: PropTypes.any
 };
 
 class InputForm extends Component {
@@ -68,8 +68,8 @@ class InputForm extends Component {
       <div className="form-group">
         <label>Nome:</label>
         <input type="text" className="form-control"
-               name="name"
-               value={this.props.user.name}
+               name="first_name"
+               value={this.props.user.first_name}
                onChange={this.props.onChange}
                placeholder="Digite o nome..."/>
         {this.props.showErrorName && <p className="text-danger">Campo obrigatório</p>}
@@ -80,7 +80,7 @@ class InputForm extends Component {
 
 InputForm.propTypes = {
   user: PropTypes.shape({
-    name: PropTypes.string
+    first_name: PropTypes.string
   }),
   onChange: PropTypes.func,
   showErrorName: PropTypes.any
@@ -93,7 +93,7 @@ class UserCrud extends Component {
   componentDidMount() {
     axios.get(baseUrl)
         .then((resp) => {
-          this.setState({ list: resp.data.users});
+          this.setState({ list: resp.data.user});
           console.log(`======> ${resp}`)
         })
         .catch((error) => {
@@ -120,7 +120,7 @@ class UserCrud extends Component {
     e.preventDefault();
     //const {name, lastName, phoneNumber, dateOfBirth } = this.state.user; -> Retorna do user só o que preciso
     const USER = this.state.user;
-    if (USER.name !== '' && USER.lastName !== '' && USER.phoneNumber !== '') {
+    if (USER.first_name !== '' && USER.last_name !== '' && USER.phone_number !== '') {
       const METHOD = USER.id ? "put" : "post";
       const URL_API = USER.id ? `${baseUrl}/${USER.id}` : baseUrl;
       axios[METHOD](URL_API, USER).then((resp) => {
@@ -129,11 +129,11 @@ class UserCrud extends Component {
       });
     } else {
       this.setState({
-        showErrorName: UserCrud.isEmptyInput(USER.name),
-        showErrorLastName: UserCrud.isEmptyInput(USER.lastName),
-        showErrorDateOfBirth: UserCrud.isEmptyInput(USER.dateOfBirth),
+        showErrorName: UserCrud.isEmptyInput(USER.first_name),
+        showErrorLastName: UserCrud.isEmptyInput(USER.last_name),
+        showErrorDateOfBirth: UserCrud.isEmptyInput(USER.date_of_birth),
         showErrorEmail: UserCrud.isEmptyInput(USER.email),
-        showErrorPhoneNumber: UserCrud.isEmptyInput(USER.phoneNumber)
+        showErrorPhoneNumber: UserCrud.isEmptyInput(USER.phone_number)
       });
     }
   }
@@ -149,12 +149,11 @@ class UserCrud extends Component {
   updateField(event) {
     const { name, value } = event.target;
     const user = { ...this.state.user, [name]: value };
-
     this.setState({user});
   }
 
   getDescriptionEnableUser(user) {
-    return user.enable === true ? "Ativo" : "Inativo";
+    return user.is_enabled === true ? "Ativo" : "Inativo";
   }
 
    renderForm() {
@@ -168,8 +167,8 @@ class UserCrud extends Component {
             <div className="form-group">
               <label>Sobrenome:</label>
               <input type="text" className="form-control"
-                     name="lastName"
-                     value={this.state.user.lastName}
+                     name="last_name"
+                     value={this.state.user.last_name}
                      onChange={e => this.updateField(e)}
                      placeholder="Digite o sobrenome..."/>
               {this.state.showErrorLastName && <p className="text-danger">Campo obrigatório</p>}
@@ -194,9 +193,9 @@ class UserCrud extends Component {
               <InputMask
                   className="form-control form-control-sm"
                   mask="(99) 99999-9999"
-                  value={this.state.user.phoneNumber}
-                  id="phoneNumber"
-                  name="phoneNumber"
+                  value={this.state.user.phone_number}
+                  id="phone_number"
+                  name="phone_number"
                   type="tel"
                   onChange={(e) => this.updateField(e)}
                   placeholder="(00) 00000-0000"
@@ -206,7 +205,6 @@ class UserCrud extends Component {
           </div>
 
           <DateOfBirth user={this.state.user} onChange={(e) => this.updateField(e)} showErrorDateOfBirth={this.state.showErrorDateOfBirth}/>
-
 
         </div>
         <hr/>
@@ -282,7 +280,7 @@ class UserCrud extends Component {
       return (
         <tr key={user.id}>
           <td>{user.id}</td>
-          <td>{user.name}</td>
+          <td>{user.first_name}</td>
           <td>{user.email}</td>
           <td>{this.getDescriptionEnableUser(user)}</td>
           <td>
