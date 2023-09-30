@@ -3,6 +3,7 @@ const db = require("../../db/db");
 const USER_COLUMM = "user";
 const bcrypt = require("bcryptjs");
 const saltRounds = 10; // You can adjust the number of salt rounds as needed.
+const dateUtils = require("../utils/dateUtils");
 
 const getAllUser = async () => {
   try {
@@ -31,7 +32,7 @@ const createUser = async (req) => {
       phone_number,
       email,
       password: hashedPassword,
-      date_of_birth,
+      date_of_birth: dateUtils.formatStringInDate(date_of_birth),
       role_type,
       is_enabled,
     });

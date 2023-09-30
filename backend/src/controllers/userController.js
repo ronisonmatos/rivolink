@@ -1,6 +1,7 @@
 "use strict";
 const userModel = require("../models/userModel");
-const logger = require("../../config/logger")
+const logger = require("../../config/logger");
+const dateUtils = require("../utils/dateUtils");
 
 const getAllUser = async (req, res) => {
   try {
@@ -14,7 +15,7 @@ const getAllUser = async (req, res) => {
       phone_number: user.phone_number,
       email: user.email,
       password: user.password,
-      date_of_birth: user.date_of_birth,
+      date_of_birth: dateUtils.formatDateInString(user.date_of_birth),
       role_type: user.role_type,
       is_enabled: user.is_enabled,
     }));
@@ -89,7 +90,7 @@ const updateUser = async (req, res) => {
       phone_number,
       email,
       password,
-      date_of_birth,
+      date_of_birth: dateUtils.formatStringInDate(date_of_birth),
       role_type,
       is_enabled,
     };
@@ -99,7 +100,7 @@ const updateUser = async (req, res) => {
       logger.info(`Updated user data: ${user.email}`)
     } else {
       res.status(404).json({ error: "User not found." });
-      // Criar regra para atualizar e-mail
+      // Criar regra para atualizar e-mail somente se for diferente do que já existe
       logger.error(`User not found: ${user.email}`)
     }
     return updateUser;
