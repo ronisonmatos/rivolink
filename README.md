@@ -21,7 +21,7 @@ npm run dev
 ```
 ## Installation Frontend
 
-Open Bakend folder
+Open Frontend folder
 
 ```bash
 npm install
