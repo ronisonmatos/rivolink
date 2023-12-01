@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../components/home/Home";
-import TodoList from "../components/todolist/TodoList"
+import TodoList from "../components/todolist/Index"
 import UserCrud from "../components/user/UserCrud";
 import NotFound from "../components/home/Home"; // Página de rota não encontrada
 
