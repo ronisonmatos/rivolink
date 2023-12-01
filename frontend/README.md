@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### ./Backend
+Criando o banco de Dados, acesse o diretório ./Backend
+### `knex migrate:latest` 
+
 ### `npm start`
 
 Runs the app in the development mode.\

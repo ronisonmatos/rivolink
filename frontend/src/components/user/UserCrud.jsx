@@ -125,7 +125,10 @@ class UserCrud extends Component {
       const URL_API = USER.id ? `${baseUrl}/${USER.id}` : baseUrl;
       axios[METHOD](URL_API, USER).then((resp) => {
         const USER_LIST = this.getUpdatedList(resp.data);
-        this.setState({ user: initialState.user, list: USER_LIST });
+        console.table(initialState.user);
+        console.table(resp.data.user);
+        console.table(USER_LIST); // USER_LIST o último usuário está sendo adicionado errado na lista < ========
+        this.setState({ user: resp.data.user });
       });
     } else {
       this.setState({

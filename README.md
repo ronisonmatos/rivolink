@@ -7,7 +7,7 @@ TCC - PUCPR
 
 ## Installation Backend
 
-Open Bakend folder
+Open Backend folder
 
 ```bash
 npm install
